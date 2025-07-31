@@ -1,17 +1,9 @@
-{% load static %}
+{% extends "layout.html" %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block title %}
+Contact pgae
+{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chai Aur Django | Contact</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-</head>
-
-<body>
-    <h1>Chai Aur Django Contact Page.</h1>
-</body>
-
-</html>
+{% block content %}
+<h1>Chai aur code | Contact page</h1>
+{% endblock %}
