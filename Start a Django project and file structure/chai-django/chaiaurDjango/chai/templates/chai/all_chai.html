@@ -12,6 +12,8 @@ Chai pgae
     <div class = "chai-item bg-blue-800 p-5 rounded">
         <img class= "rounded shadow-lg" src="{{chai.image.url}}" alt="">
         <h3 class = "text-2xl font-bold">{{chai.name}}</h3>
+
+        <p class = "text-lg font-semibold">Price: ${{chai.price}}</p>
         
         <a href="{% url 'chai_detail' chai.id %}">
             <button 
