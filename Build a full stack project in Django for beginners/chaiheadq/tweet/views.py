@@ -16,9 +16,10 @@ def tweet_list(request):
 def tweet_create(request):
     if request.method == "POST":
         form = TweetForm(request.POST, request.FILES)
-
-        if form.is_valld():
-            tweet = form.save(commit = False)
+        valid = form.is_valid()
+        
+        if (valid):
+            tweet = form.save(commit=False)
             tweet.user = request.user
             tweet.save()
 
@@ -34,7 +35,7 @@ def tweet_edit(request, tweet_id):
     if request.method == "POST":
         form = TweetForm(request.POST, request.FILES, instance = tweet)
 
-        if form.is_valid():
+        if (form.is_valid()):
             tweet = form.save(commit = False)
             tweet.user = request.user
             tweet.save()
