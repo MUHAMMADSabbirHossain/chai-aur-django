@@ -16,16 +16,12 @@
         {% block nav %}navbar{% endblock %}
     </nav>
 
-    <main>
+    <main class="min-h-[calc(100dvh-900px)]">
         {% block main_content %}mian content{% endblock %}
     </main>
 
-    <footer>
-        {% block footer %}footer{% endblock %}
-    </footer>
-
-    <footer>
-        © {{ current_year }} MySite. All rights reserved.
+    <footer class="text-center p-5 bg-gray-800 text-xs font-extrabold">
+        {% block footer %}© {{ current_year }} Search Tweets. All rights reserved.{% endblock %}
     </footer>
 
     <script src="{% static 'js/script.js' %}"></script>
