@@ -3,7 +3,36 @@
 {% block title %}Search Tweets | Tweets Page{% endblock %}
 
 {% block main_content %}
-    <h1 class="text-2xl">
+    <h1 class="text-2xl text-center p-5">
         Hello world(Tweets List)!
     </h1>
+
+    <ul class="grid md:grid-cols-2 xl:grid-cols-3 gap-5 p-1 sm:p-5">
+        {% for tweet in tweets %}
+        <li class="bg-zinc-800 p-5 rounded-xl">
+            <a href="#">
+                <p>
+                    <span class="font-bold text-lg">{{ tweet.user.username }}</span>
+                    <span class="text-sm text-gray-400">({{ tweet.created_at }})</span>
+                </p>
+                
+                <img 
+                src="{{ tweet.image.url}}" 
+                alt="{{ tweet.text }}" 
+                class="rounded-xl">
+                
+                <p class="my-2">{{ tweet.text }}</p>
+            </a>
+
+            <div class="">
+                <button type="submit" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded duration-200">Update</button>
+
+                <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded duration-200">Delete</button>
+            </div>
+
+            <p class="text-sm text-gray-400 text-right">Last updated: {{ tweet.updated_at }}</p>
+            
+        </li>
+        {% endfor %}
+    </ul>
 {% endblock %}
