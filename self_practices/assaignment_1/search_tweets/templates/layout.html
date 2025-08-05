@@ -13,18 +13,22 @@
 </head>
 <body>
     <nav class="flex justify-between items-center py-2">
-        {% comment %} {% block nav %}navbar{% endblock %} {% endcomment %}
         <div>
             <p>Search Tweets</p>
         </div>
+
         <div>
             <a href="{% url 'home' %}">Home</a>
             <a href="{% url 'tweet_list' %}">Tweets</a>
         </div>
+
         <div>
-            <a href="{% url 'register' %}" class="py-2 px-4 bg-gray-800 text-white hover:bg-gray-900 rounded-lg font-bold duration-200">Register</a>
-            <a href="{% url 'login' %}" class="py-2 px-4 bg-gray-800 text-white hover:bg-gray-900 rounded-lg font-bold duration-200">Login</a>
-            <a href="{% url 'logout' %}" class="py-2 px-4 bg-gray-800 text-white hover:bg-gray-900 rounded-lg font-bold duration-200">Logout</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="py-2 px-4 bg-gray-800 text-white hover:bg-gray-900 rounded-lg font-bold duration-200">Logout</a>
+            {% else %}
+                <a href="{% url 'register' %}" class="py-2 px-4 bg-gray-800 text-white hover:bg-gray-900 rounded-lg font-bold duration-200">Register</a>
+                <a href="{% url 'login' %}" class="py-2 px-4 bg-gray-800 text-white hover:bg-gray-900 rounded-lg font-bold duration-200">Login</a>
+            {% endif %}
         </div>
     </nav>
 

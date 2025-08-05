@@ -28,14 +28,16 @@
                 <p class="my-2">{{ tweet.text }}</p>
             </a>
 
-            <div class="">
-                <a href="{% url 'tweet_update' tweet.id %}">
-                    <button type="submit" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded duration-200">Update</button>
-                </a>
-                <a href="{% url 'tweet_delete' tweet.id %}">
-                    <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded duration-200">Delete</button>
-                </a>
+            {% if user == tweet.user %}
+                <div class="">
+                    <a href="{% url 'tweet_update' tweet.id %}">
+                        <button type="submit" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded duration-200">Update</button>
+                    </a>
+                    <a href="{% url 'tweet_delete' tweet.id %}">
+                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded duration-200">Delete</button>
+                    </a>
                 </div>
+            {% endif %}
 
             <p class="text-sm text-gray-400 text-right">Last updated: {{ tweet.updated_at }}</p>
             
