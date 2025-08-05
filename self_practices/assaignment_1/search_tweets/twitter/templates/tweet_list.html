@@ -7,17 +7,21 @@
         Hello world(Tweets List)!
     </h1>
 
+    <div class="flex justify-end p-5">
+        <a href="{% url "tweet_create" %}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded duration-200">Tweet Now</a>
+    </div>
+
     <ul class="grid md:grid-cols-2 xl:grid-cols-3 gap-5 p-1 sm:p-5">
         {% for tweet in tweets %}
         <li class="bg-zinc-800 p-5 rounded-xl">
-            <a href="#">
+            <a href="{% url 'tweet_detail' tweet.id %}">
                 <p>
                     <span class="font-bold text-lg">{{ tweet.user.username }}</span>
                     <span class="text-sm text-gray-400">({{ tweet.created_at }})</span>
                 </p>
                 
                 <img 
-                src="{{ tweet.image.url}}" 
+                src="{{ tweet.image.url }}" 
                 alt="{{ tweet.text }}" 
                 class="rounded-xl">
                 
