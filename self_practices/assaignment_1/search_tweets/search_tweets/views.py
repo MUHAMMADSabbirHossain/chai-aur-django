@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 import datetime
 from .forms import UserRegistrationForm, UserLoginForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 
 def home(request):
     # return HttpResponse("Hello, world. You're at the polls index.")
@@ -47,3 +47,8 @@ def user_login(request):
                 form.add_error(None, "Invalid username or password.")
 
     return render(request, "login.html", {"form": form})
+
+def user_logout(request):
+    logout(request)
+
+    return redirect("login")
