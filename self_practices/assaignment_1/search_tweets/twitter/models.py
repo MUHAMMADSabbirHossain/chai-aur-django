@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.utils.html import format_html
 
 # Create your models here.
 
@@ -12,4 +13,4 @@ class Tweet(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.text
+        return f'{self.text[:20]}'
