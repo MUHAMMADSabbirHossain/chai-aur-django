@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}Search Tweets | {{ tweet.user.username }}'s Tweet{% endblock %}
+
+{% block main_content %}
+    <p>
+        <span class="font-bold text-lg">{{ tweet.user.username }}</span>
+        <span class="text-sm text-gray-400">({{ tweet.created_at }})</span>
+    </p>
+    
+    <img 
+    src="{{ tweet.image.url}}" 
+    alt="{{ tweet.text }}" 
+    class="rounded-xl">
+    
+    <p class="my-2">{{ tweet.text }}</p>
+
+    <p class="text-sm text-gray-400 text-right my-2">{{ tweet.updated_at }}</p>
+{% endblock %}
